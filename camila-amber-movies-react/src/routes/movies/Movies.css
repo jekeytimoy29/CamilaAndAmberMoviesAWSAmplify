@@ -1,0 +1,11 @@
+.movies-container {
+  margin: 3% 3% 5% 3%;
+}
+
+.action-buttons {
+  display: flex;
+  margin-top: 2%;
+  margin-bottom: 3%;
+  margin-left: 81%;
+  margin-right: 3%;
+}
