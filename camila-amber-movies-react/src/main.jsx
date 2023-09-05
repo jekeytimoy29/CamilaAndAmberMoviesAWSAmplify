@@ -42,6 +42,9 @@ import MyProfile, {
   loader as myProfileLoader,
 } from "./routes/myProfile/MyProfile";
 import { action as deleteProfile } from "./routes/DeleteProfile";
+import { Amplify } from "aws-amplify";
+import config from "./aws-exports";
+Amplify.configure(config);
 
 const router = createBrowserRouter(
   createRoutesFromElements(
