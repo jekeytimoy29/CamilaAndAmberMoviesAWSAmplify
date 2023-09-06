@@ -6,7 +6,10 @@ import {
   updateUser,
   addUser,
 } from "../../datasource/local/usersStorage";
-import { updateUserApi, addUserApi } from "../../datasource/api/users-api";
+import {
+  updateUserApi,
+  addUserApi,
+} from "../../datasource/graphql-api/users-api";
 import { withSubmitForm } from "../../hocs/WithSubmitForm";
 
 const UserForm = ({
@@ -20,7 +23,7 @@ const UserForm = ({
 
   return (
     <CustomFormCard
-      title={userForm._id && userForm._id.length ? "Edit User" : "Add User"}
+      title={userForm.id && userForm.id.length ? "Edit User" : "Add User"}
       data={userForm}
       setData={setUserForm}
       inputs={userFormInputs}
@@ -63,7 +66,7 @@ export async function action({ request, params }) {
   let user = Object.fromEntries(formData);
 
   if (params && params.user_id) {
-    user._id = params.user_id;
+    user.id = params.user_id;
     user = await updateUserApi(user);
 
     if (user) await updateUser(params.user_id, user);
@@ -73,5 +76,5 @@ export async function action({ request, params }) {
     if (user) await addUser(user);
   }
 
-  return redirect(`/users/${user._id}`);
+  return redirect(`/users/${user.id}`);
 }

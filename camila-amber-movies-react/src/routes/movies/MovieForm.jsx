@@ -6,7 +6,10 @@ import {
   updateMovie,
   addMovie,
 } from "../../datasource/local/moviesStorage";
-import { updateMovieApi, addMovieApi } from "../../datasource/api/movies-api";
+import {
+  updateMovieApi,
+  addMovieApi,
+} from "../../datasource/graphql-api/movies-api";
 import { movieFormInputs } from "./MovieFormInputs";
 
 export default function MovieForm() {
@@ -30,7 +33,7 @@ export default function MovieForm() {
 
   return (
     <CustomFormCard
-      title={movie._id && movie._id.length ? "Edit Movie" : "Add Movie"}
+      title={movie.id && movie.id.length ? "Edit Movie" : "Add Movie"}
       data={movieForm}
       setData={setMovieForm}
       inputs={movieFormInputs}
@@ -115,7 +118,7 @@ export async function action({ request, params }) {
       : [];
 
   if (params && params.movie_id) {
-    movie._id = params.movie_id;
+    movie.id = params.movie_id;
     movie = await updateMovieApi(movie);
 
     if (movie) await updateMovie(params.movie_id, movie);
@@ -125,7 +128,7 @@ export async function action({ request, params }) {
     if (movie) await addMovie(movie);
   }
 
-  return redirect(`/movies/${movie._id}`);
+  return redirect(`/movies/${movie.id}`);
 }
 
 const getFormattedDate = (dateString) => {

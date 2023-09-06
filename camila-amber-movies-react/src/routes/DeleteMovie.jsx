@@ -1,6 +1,6 @@
 import { redirect } from "react-router-dom";
 import { deleteMovie } from "../datasource/local/moviesStorage";
-import { deleteMovieApi } from "../datasource/api/movies-api";
+import { deleteMovieApi } from "../datasource/graphql-api/movies-api";
 
 export async function action({ params }) {
   if (await deleteMovieApi(params.movie_id)) {

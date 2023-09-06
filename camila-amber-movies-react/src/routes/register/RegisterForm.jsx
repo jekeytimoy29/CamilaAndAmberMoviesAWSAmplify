@@ -7,7 +7,10 @@ import {
   addUser,
   updateUser,
 } from "../../datasource/local/usersStorage";
-import { updateUserApi, addUserApi } from "../../datasource/api/users-api";
+import {
+  updateUserApi,
+  addUserApi,
+} from "../../datasource/graphql-api/users-api";
 import { withSubmitForm } from "../../hocs/WithSubmitForm";
 
 const RegisterForm = ({
@@ -65,7 +68,7 @@ export async function action({ request, params }) {
   user.role = "User";
 
   if (params && params.user_id) {
-    user._id = params.user_id;
+    user.id = params.user_id;
     user = await updateUserApi(user);
 
     if (user) await updateUser(params.user_id, user);

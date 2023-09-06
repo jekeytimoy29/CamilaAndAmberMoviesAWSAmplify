@@ -21,7 +21,7 @@ export const withSubmitForm = (Component) => {
           const users = await getUsers();
           const user = users.find((u) => u.email === userForm.email);
 
-          if (user && !userForm._id)
+          if (user && !userForm.id)
             setErrorMessage("Entered E-mail already registered...");
           else submit(e.target, { method: "post" });
         } else

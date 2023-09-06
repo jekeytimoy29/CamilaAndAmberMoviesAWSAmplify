@@ -27,7 +27,7 @@ const CustomListCard = (props) => {
             list.map((item, index) => (
               <NavLink
                 key={index}
-                to={`/${navigateTo}/${item._id}`}
+                to={`/${navigateTo}/${item.id}`}
                 className="nav-link"
               >
                 {item[listItemProp]}

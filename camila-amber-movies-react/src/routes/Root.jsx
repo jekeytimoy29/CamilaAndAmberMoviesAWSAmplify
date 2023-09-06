@@ -5,9 +5,9 @@ import Footer from "../components/footer/Footer";
 import { setMovies } from "../datasource/local/moviesStorage";
 import { setComments } from "../datasource/local/commentsStorage";
 import { setUsers } from "../datasource/local/usersStorage";
-import { getMoviesApi } from "../datasource/api/movies-api";
-import { getAllCommentsApi } from "../datasource/api/comments-api";
-import { getUsersApi } from "../datasource/api/users-api";
+import { getMoviesApi } from "../datasource/graphql-api/movies-api";
+import { getAllCommentsApi } from "../datasource/graphql-api/comments-api";
+import { getUsersApi } from "../datasource/graphql-api/users-api";
 import { AuthProvider } from "../contexts/AuthContext";
 
 class Root extends Component {

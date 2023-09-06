@@ -16,7 +16,7 @@ const MovieCarousel = ({ movies }) => {
                 <Button
                   size="lg"
                   variant="primary"
-                  onClick={() => navigate(`/movie-more-details/${movie._id}`)}
+                  onClick={() => navigate(`/movie-more-details/${movie.id}`)}
                 >
                   More Details
                 </Button>

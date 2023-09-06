@@ -9,7 +9,7 @@ import {
 } from "../../datasource/local/commentsStorage";
 import CommentCard from "../../components/commentCard/CommentCard";
 import { useAuth } from "../../contexts/AuthContext";
-import { addCommentApi } from "../../datasource/api/movies-api";
+import { addCommentApi } from "../../datasource/graphql-api/comments-api";
 
 let auth = null;
 
@@ -54,7 +54,7 @@ export async function action({ request, params }) {
 
   console.log(comment);
 
-  comment = await addCommentApi(params.movie_id, comment);
+  comment = await addCommentApi(comment);
 
   if (comment) await addComment(comment);
 

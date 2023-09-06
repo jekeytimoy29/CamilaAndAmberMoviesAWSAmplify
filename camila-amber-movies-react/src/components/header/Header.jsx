@@ -62,7 +62,7 @@ export default function Header() {
                 </Button>
                 <Button
                   variant="outline-info"
-                  onClick={() => navigate(`/my_profile/${auth.user._id}`)}
+                  onClick={() => navigate(`/my_profile/${auth.user.id}`)}
                 >
                   My Profile
                 </Button>
