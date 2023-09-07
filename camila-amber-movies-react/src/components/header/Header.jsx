@@ -3,7 +3,6 @@ import { Navbar, Container, Nav, Button, Image } from "react-bootstrap";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useAuth, useAuthDispatch } from "../../contexts/AuthContext";
 import { useEffect } from "react";
-import localforage from "localforage";
 
 export default function Header() {
   const navigate = useNavigate();
@@ -92,6 +91,6 @@ export default function Header() {
 }
 
 const setLastLoginUser = async (authDispatch) => {
-  const user = await localforage.getItem("loggedInUser");
+  const user = await localStorage.getItem("loggedInUser");
   if (user) authDispatch({ type: "LOGIN", user: user });
 };

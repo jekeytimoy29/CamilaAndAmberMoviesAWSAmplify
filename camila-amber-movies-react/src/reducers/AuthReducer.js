@@ -1,16 +1,14 @@
-import localforage from "localforage";
-
 export const authReducer = (state, action) => {
   switch (action.type) {
     case "LOGIN":
-      localforage.setItem("loggedInUser", action.user);
+      localStorage.setItem("loggedInUser", action.user);
       return {
         ...state,
         user: action.user,
         isAuthorized: action.user.role === "Admin" ? true : false,
       };
     case "LOGOUT":
-      localforage.removeItem("loggedInUser");
+      localStorage.removeItem("loggedInUser");
       return {
         ...state,
         isAuthorized: false,

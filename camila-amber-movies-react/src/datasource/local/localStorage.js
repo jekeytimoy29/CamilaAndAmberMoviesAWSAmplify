@@ -1,17 +1,17 @@
-import localforage from "localforage";
-
 export async function set(elementString, elements) {
-  return await localforage.setItem(elementString, elements);
+  elements.then(function (result) {
+    localStorage.setItem(elementString, JSON.stringify(result));
+  });
 }
 
 export async function get(elementString) {
-  let elements = await localforage.getItem(elementString);
+  let elements = await localStorage.getItem(elementString);
   if (!elements) {
     elements = [];
     await set(elementString, elements);
   }
 
-  return elements;
+  return JSON.parse(elements);
 }
 
 export async function add(elementString, element) {
@@ -22,13 +22,15 @@ export async function add(elementString, element) {
 }
 
 export async function getElement(elementString, id) {
-  let elements = await localforage.getItem(elementString);
+  let elements = await localStorage.getItem(elementString);
+  elements = JSON.parse(elements);
   let element = elements.find((element) => element.id === id);
   return element ?? null;
 }
 
 export async function update(elementString, id, updates) {
-  let elements = await localforage.getItem(elementString);
+  let elements = await localStorage.getItem(elementString);
+  elements = JSON.parse(elements);
   let element = elements.find((element) => element.id === id);
   if (!element) throw new Error("No element found for", id);
   Object.assign(element, updates);
@@ -37,7 +39,8 @@ export async function update(elementString, id, updates) {
 }
 
 export async function remove(elementString, id) {
-  let elements = await localforage.getItem(elementString);
+  let elements = await localStorage.getItem(elementString);
+  elements = JSON.parse(elements);
   let index = elements.findIndex((element) => element.id === id);
   if (index > -1) {
     elements.splice(index, 1);
