@@ -19,7 +19,7 @@ export const getMovieApi = async (id) => {
       query: getMovie,
       variables: { id },
     });
-    if (apiData.data !== null) return apiData.data.movie;
+    if (apiData.data !== null) return apiData.data.getMovie;
   } catch (err) {
     console.log(err);
   }
@@ -47,7 +47,7 @@ export const addMovieApi = async (movie) => {
       query: createMovie,
       variables: { input: movie },
     });
-    if (apiData.data !== null) return apiData.data.movie;
+    if (apiData.data !== null) return apiData.data.createMovie;
   } catch (err) {
     console.log(err);
   }
@@ -61,7 +61,7 @@ export const updateMovieApi = async (movie) => {
       query: updateMovie,
       variables: { input: movie },
     });
-    if (apiData.data !== null) return apiData.data.movie;
+    if (apiData.data !== null) return apiData.data.updateMovie;
   } catch (err) {
     console.log(err);
   }

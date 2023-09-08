@@ -63,7 +63,15 @@ export default withSubmitForm(UserForm);
 
 export async function action({ request, params }) {
   const formData = await request.formData();
-  let user = Object.fromEntries(formData);
+
+  // exclude entry for confirmPassword
+  const keysToExclude = ["confirmPassword"];
+  const formEntries = Array.from(formData.entries());
+  const filteredEntries = formEntries.filter(
+    ([key, value]) => !keysToExclude.includes(key)
+  );
+
+  let user = Object.fromEntries(filteredEntries);
 
   if (params && params.user_id) {
     user.id = params.user_id;

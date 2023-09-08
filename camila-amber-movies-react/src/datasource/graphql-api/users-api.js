@@ -19,7 +19,7 @@ export const getUserApi = async (id) => {
       query: getUser,
       variables: { id },
     });
-    if (apiData.data !== null) return apiData.data.user;
+    if (apiData.data !== null) return apiData.data.getUser;
   } catch (err) {
     console.log(err);
   }
@@ -47,7 +47,7 @@ export const addUserApi = async (user) => {
       query: createUser,
       variables: { input: user },
     });
-    if (apiData.data !== null) return apiData.data.user;
+    if (apiData.data !== null) return apiData.data.createUser;
   } catch (err) {
     console.log(err);
   }
@@ -61,7 +61,7 @@ export const updateUserApi = async (user) => {
       query: updateUser,
       variables: { input: user },
     });
-    if (apiData.data !== null) return apiData.data.user;
+    if (apiData.data !== null) return apiData.data.updateUser;
   } catch (err) {
     console.log(err);
   }

@@ -4,11 +4,15 @@ export async function set(elementString, elements) {
   });
 }
 
+export async function setNoPromise(elementString, elements) {
+  return await localStorage.setItem(elementString, JSON.stringify(elements));
+}
+
 export async function get(elementString) {
   let elements = await localStorage.getItem(elementString);
   if (!elements) {
     elements = [];
-    await set(elementString, elements);
+    await setNoPromise(elementString, elements);
   }
 
   return JSON.parse(elements);
@@ -17,7 +21,7 @@ export async function get(elementString) {
 export async function add(elementString, element) {
   let elements = await get(elementString);
   elements.unshift(element);
-  await set(elementString, elements);
+  await setNoPromise(elementString, elements);
   return element;
 }
 
@@ -34,7 +38,7 @@ export async function update(elementString, id, updates) {
   let element = elements.find((element) => element.id === id);
   if (!element) throw new Error("No element found for", id);
   Object.assign(element, updates);
-  await set(elementString, elements);
+  await setNoPromise(elementString, elements);
   return element;
 }
 
@@ -44,7 +48,7 @@ export async function remove(elementString, id) {
   let index = elements.findIndex((element) => element.id === id);
   if (index > -1) {
     elements.splice(index, 1);
-    await set(elementString, elements);
+    await setNoPromise(elementString, elements);
     return true;
   }
   return false;

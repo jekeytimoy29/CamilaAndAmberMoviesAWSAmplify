@@ -33,7 +33,7 @@ export const addCommentApi = async (comment) => {
       query: createComment,
       variables: { input: comment },
     });
-    if (apiData.data !== null) return apiData.data.comment;
+    if (apiData.data !== null) return apiData.data.createComment;
   } catch (err) {
     console.log(err);
   }

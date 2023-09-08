@@ -62,7 +62,15 @@ export async function loader({ params }) {
 
 export async function action({ request, params }) {
   const formData = await request.formData();
-  let user = Object.fromEntries(formData);
+
+  // exclude entry for confirmPassword
+  const keysToExclude = ["confirmPassword"];
+  const formEntries = Array.from(formData.entries());
+  const filteredEntries = formEntries.filter(
+    ([key, value]) => !keysToExclude.includes(key)
+  );
+
+  let user = Object.fromEntries(filteredEntries);
 
   // always set role to User for registered users as of now
   user.role = "User";

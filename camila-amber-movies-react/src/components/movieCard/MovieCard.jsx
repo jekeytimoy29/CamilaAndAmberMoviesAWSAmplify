@@ -53,7 +53,8 @@ class MovieCard extends Component {
               </ListGroup.Item>
               <ListGroup.Item>
                 <strong>Languages:</strong>{" "}
-                {movie.languages.length &&
+                {movie.languages &&
+                  movie.languages.length &&
                   movie.languages.reduce((a, b) => a + ", " + b)}
               </ListGroup.Item>
             </>

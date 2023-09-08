@@ -81,9 +81,10 @@ export async function loader({ params }) {
     movie.directors = movie.directors.length
       ? movie.directors.reduce((a, b) => a + ", " + b)
       : "";
-    movie.languages = movie.languages.length
-      ? movie.languages.reduce((a, b) => a + ", " + b)
-      : "";
+    movie.languages =
+      movie.languages && movie.languages.length
+        ? movie.languages.reduce((a, b) => a + ", " + b)
+        : "";
     movie.countries = movie.countries.length
       ? movie.countries.reduce((a, b) => a + ", " + b)
       : "";
