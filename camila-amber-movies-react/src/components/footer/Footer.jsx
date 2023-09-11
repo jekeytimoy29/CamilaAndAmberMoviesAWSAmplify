@@ -22,6 +22,18 @@ class Footer extends Component {
               timothy.flordelis@miu.edu
             </a>
           </p>
+          <div>
+            Github:{" "}
+            <a href="https://github.com/jekeytimoy29">
+              https://github.com/jekeytimoy29
+            </a>
+          </div>
+          <div>
+            Docker Hub:{" "}
+            <a href="https://hub.docker.com/u/jekeytimoy38">
+              https://hub.docker.com/u/jekeytimoy38
+            </a>
+          </div>
         </div>
       </footer>
     );
