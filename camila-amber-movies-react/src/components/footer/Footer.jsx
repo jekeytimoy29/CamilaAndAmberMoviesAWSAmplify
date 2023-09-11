@@ -24,13 +24,13 @@ class Footer extends Component {
           </p>
           <div>
             Github:{" "}
-            <a href="https://github.com/jekeytimoy29">
+            <a href="https://github.com/jekeytimoy29" target="_blank">
               https://github.com/jekeytimoy29
             </a>
           </div>
           <div>
             Docker Hub:{" "}
-            <a href="https://hub.docker.com/u/jekeytimoy38">
+            <a href="https://hub.docker.com/u/jekeytimoy38" target="_blank">
               https://hub.docker.com/u/jekeytimoy38
             </a>
           </div>
