@@ -6,7 +6,7 @@ class MovieCard extends Component {
   render() {
     const { movie, showMoreDetails } = this.props;
     return (
-      <Card className="card-style" sm={4} border="info">
+      <Card sm={4} border="info">
         <Card.Img variant="top" src={movie.poster} className="card-img" />
         <Card.Body>
           <Card.Title>{movie.title}</Card.Title>

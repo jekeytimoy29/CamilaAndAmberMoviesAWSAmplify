@@ -2,7 +2,7 @@ import "./MovieMoreDetails.css";
 import { useLoaderData } from "react-router-dom";
 import MovieCard from "../../components/movieCard/MovieCard";
 import { getMovie } from "../../datasource/local/moviesStorage";
-import { Row } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 import {
   addComment,
   getMovieComments,
@@ -20,12 +20,12 @@ export default function MovieMoreDetails() {
 
   return (
     <Row>
-      <div className="details-container">
+      <Col md={7} className="details-container">
         <MovieCard movie={movie} showMoreDetails />
-      </div>
-      <div className="comments-container">
+      </Col>
+      <Col md={5} className="comments-container">
         <CommentCard comments={comments} className="card-container" />
-      </div>
+      </Col>
     </Row>
   );
 }
