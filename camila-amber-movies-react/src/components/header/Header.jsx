@@ -20,7 +20,7 @@ export default function Header() {
         className="banner-style"
         alt="Frozen Movie Banner"
       />
-      <Navbar bg="dark" variant="dark" size="lg">
+      <Navbar bg="dark" variant="dark" expand="lg">
         <Container fluid>
           <Navbar.Brand>Camila and Amber Movies</Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
