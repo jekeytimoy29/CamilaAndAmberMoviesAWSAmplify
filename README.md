@@ -2,6 +2,8 @@
 
 An App where it shows a collection of movies and let the user register and add their comments and ratings about the movies. An admin account can manage movies and users where it can perform add, edit, and delete.
 
+Another React-Native app is also included in this project where you can use AWS Cognito for the authentication and then can view the movies list and navigate to its full movie details.
+
 # Amplify Website
 https://master.dy46zzduujp5a.amplifyapp.com/
 
